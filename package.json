@@ -1,0 +1,40 @@
+{
+  "name": "minecraft-addon-toolchain-webpack",
+  "version": "1.0.0-beta",
+  "description": "Adds support for modern JavaScript to Minecraft's scripting engine with webpack",
+  "main": "index.js",
+  "repository": "github:destruc7i0n/minecraft-addon-toolchain-webpack.git",
+  "bugs": {
+    "url": "https://github.com/destruc7i0n/minecraft-scripting-toolchain-webpack/issues"
+  },
+  "keywords": [
+    "minecraft",
+    "bedrock",
+    "scripting",
+    "api",
+    "gulp",
+    "es6",
+    "module",
+    "require"
+  ],
+  "author": "destruc7i0n",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "glob": "^7.1.3",
+    "gulp": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-tap": "^1.0.1",
+    "gulplog": "^1.0.0",
+    "minecraft-addon-toolchain": "^1.0.1",
+    "pump": "^3.0.0",
+    "webpack": "^4.29.0",
+    "webpack-glob-entries": "^1.0.1",
+    "webpack-stream": "^5.2.1"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}
