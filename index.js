@@ -12,7 +12,6 @@ class WebpackSupport {
     this.options = {
       debug: false,
       multiEntry: true,
-      resolveLoaders: true
     }
     this.webpackOptions = {
       mode: 'development' // for minification, set to `production`
@@ -32,11 +31,12 @@ class WebpackSupport {
 
     this.intermediateDir = './out/before-webpack'
     this.entryPoints = ['./scripts/client/*.js', './scripts/server/*.js']
+    this.bundleSources = ['./scripts/**/*.js']
 
     const _this = this
     this.sourceTasks = [
       {
-        condition: '**/*.js',
+        condition: this.bundleSources,
         preventDefault: true,
         task: (pack) => tap((file, t) => {
           _this.options && _this.options.debug && log.info(`\twebpack: redirecting ${file.path}`)
@@ -104,12 +104,7 @@ class WebpackSupport {
                 },
                 module: {
                   rules: this.webpackRules
-                },
-                resolveLoader: this.options.resolveLoaders ? {
-                  // where to resolve babel-loader from... if you're adding your own you may encounter some problems here.
-                  // use the options.resolveLoaders and install babel-loader locally to get around this, or specify in webpackOptions
-                  modules: [path.join(__dirname, 'node_modules')]
-                } : {}
+                }
               }, this.webpackOptions)),
               dest(destination)
             ],
@@ -128,10 +123,7 @@ class WebpackSupport {
                 },
                 module: {
                   rules: this.webpackRules
-                },
-                resolveLoader: this.options.resolveLoaders ? {
-                  modules: [path.join(__dirname, 'node_modules')]
-                } : {}
+                }
               }, this.webpackOptions)),
               dest(destination)
             ],
