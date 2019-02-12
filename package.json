@@ -1,6 +1,6 @@
 {
   "name": "minecraft-addon-toolchain-webpack",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Adds support for modern JavaScript to Minecraft's scripting engine with webpack",
   "main": "index.js",
   "repository": "github:destruc7i0n/minecraft-addon-toolchain-webpack.git",

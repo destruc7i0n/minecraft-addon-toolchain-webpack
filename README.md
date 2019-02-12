@@ -51,7 +51,10 @@ const webpackSupport = new WebpackSupport();
 //webpackSupport.intermediateDir = './out/before-webpack'
 
 /// Change the entry point scripts that will be bundled.
-//webpackSupport.entryPoints = ['./scripts/client/*.js', './scripts/server/*.js']
+//webpackSupport.entryPoints = ['scripts/client/*.js', 'scripts/server/*.js']
+
+/// Add additional files to be bundled
+//webpackSupport.bundleSources = ["scripts/**/*.js" ];
 
 builder.addPlugin(webpackSupport)
 

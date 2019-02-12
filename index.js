@@ -14,24 +14,27 @@ class WebpackSupport {
       multiEntry: true,
     }
     this.webpackOptions = {
-      mode: 'development' // for minification, set to `production`
+      mode: 'development', // for minification, set to `production`
+      devtool: false
       // you can also add your own plugins, config etc here...
     }
-    this.webpackRules = [ // modify/append this to add a file loader, etc.
+    this.webpackRules = [ // append this to add a file loader, etc.
       {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            retainLines: true,
+            compact: false
           }
         }
       }
     ]
 
     this.intermediateDir = './out/before-webpack'
-    this.entryPoints = ['./scripts/client/*.js', './scripts/server/*.js']
-    this.bundleSources = ['./scripts/**/*.js']
+    this.entryPoints = ['scripts/client/*.js', 'scripts/server/*.js']
+    this.bundleSources = ['scripts/**/*.js']
 
     const _this = this
     this.sourceTasks = [
